@@ -3,8 +3,7 @@ import { useState } from "react";
 const useHttp = (requestConfig, applyData) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  // const [tasks, setTasks] = useState([]);
-
+ 
   const sendRequest = async (taskText) => {
     setIsLoading(true);
     setError(null);
@@ -22,13 +21,6 @@ const useHttp = (requestConfig, applyData) => {
       const data = await response.json();
       applyData(data);
 
-      // const loadedTasks = [];
-
-      // for (const taskKey in data) {
-      //   loadedTasks.push({ id: taskKey, text: data[taskKey].text });
-      // }
-
-      // setTasks(loadedTasks);
     } catch (err) {
       setError(err.message || "Something went wrong!");
     }
